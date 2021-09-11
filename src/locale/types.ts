@@ -1,4 +1,4 @@
-import type { Era, FirstWeekContainsDate, Month, Quarter, Day } from '../types'
+import type { Day, Era, FirstWeekContainsDate, Month, Quarter } from '../types'
 import type {
   BuildLocalizeFnArgCallback,
   LocalizeUnitValues,
@@ -85,6 +85,7 @@ export type LocalizeFn<
   options?: {
     width?: LocalePatternWidth
     context?: 'formatting' | 'standalone'
+    unit?: LocaleOrdinalUnit
   }
 ) => string
 
@@ -181,6 +182,18 @@ export interface Match {
   day: MatchFn<Day>
   dayPeriod: MatchFn<LocaleDayPeriod>
 }
+
+export type LocaleOrdinalUnit =
+  | 'second'
+  | 'minute'
+  | 'hour'
+  | 'day'
+  | 'week'
+  | 'month'
+  | 'quarter'
+  | 'year'
+  | 'date'
+  | 'dayOfYear'
 
 export type LocalePatternWidth =
   | 'narrow'
